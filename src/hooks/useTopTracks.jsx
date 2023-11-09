@@ -1,12 +1,12 @@
-// src/hooks/useSpotifyApi.jsx
+// src/hooks/useTopTracks.jsx
 import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../contexts/AuthContext';
 import config from '../config/config'; // Asegúrate de que la ruta sea correcta
 
-const useSpotifyApi = (endpoint) => {
+const useTopTracks = () => {
   const { accessToken } = useContext(AuthContext);
-  const [data, setData] = useState(null);
+  const [topTracks, setTopTracks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -17,12 +17,12 @@ const useSpotifyApi = (endpoint) => {
       return;
     }
 
-    const fetchData = async () => {
+    const fetchTopTracks = async () => {
       try {
-        const response = await axios.get(`${config.SPOTIFY_API_BASE_URL}${endpoint}`, {
+        const response = await axios.get(`${config.SPOTIFY_API_BASE_URL}${config.SPOTIFY_TOP_TRACKS_ENDPOINT}`, {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
-        setData(response.data);
+        setTopTracks(response.data.items);
       } catch (err) {
         setError(err);
       } finally {
@@ -30,15 +30,10 @@ const useSpotifyApi = (endpoint) => {
       }
     };
 
-    fetchData();
+    fetchTopTracks();
+  }, [accessToken]);
 
-    return () => {
-      // Cleanup function
-    };
-
-  }, [endpoint, accessToken]);
-
-  return { data, loading, error };
+  return { topTracks, loading, error };
 };
 
-export default useSpotifyApi;
+export default useTopTracks;

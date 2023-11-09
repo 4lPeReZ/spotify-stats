@@ -1,15 +1,15 @@
 // src/App.js
 
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
 import AppRoutes from './routes/Routes';
 import './styles/App.css'; // Import global styles
 
 const App = () => {
   return (
-    <Router>
+    <AuthProvider>
       <AppRoutes />
-    </Router>
+    </AuthProvider>
   );
 };
 
