@@ -1,14 +1,14 @@
 // src/hooks/useTopArtists.jsx
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { AuthContext } from '../contexts/AuthContext';
-import config from '../config/config'; // Asegúrate de que la ruta sea correcta
+import config from '../config/config';
 
 const useTopArtists = () => {
-  const { accessToken } = useContext(AuthContext);
-  const [topArtists, setTopArtists] = useState([]);
+  const accessToken = localStorage.getItem("spotify_access_token");
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [topArtists, setTopArtists] = useState([]);
 
   useEffect(() => {
     if (!accessToken) {
@@ -23,9 +23,9 @@ const useTopArtists = () => {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
         setTopArtists(response.data.items);
+        setLoading(false);
       } catch (err) {
         setError(err);
-      } finally {
         setLoading(false);
       }
     };

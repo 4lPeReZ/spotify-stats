@@ -1,31 +1,34 @@
 // src/hooks/useTopTracks.jsx
-import { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
-import { AuthContext } from '../contexts/AuthContext';
-import config from '../config/config'; // Asegúrate de que la ruta sea correcta
+import { useState, useEffect } from "react";
+import axios from "axios";
+import config from "../config/config";
 
 const useTopTracks = () => {
-  const { accessToken } = useContext(AuthContext);
-  const [topTracks, setTopTracks] = useState([]);
+  const accessToken = localStorage.getItem("spotify_access_token");
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [topTracks, setTopTracks] = useState([]);
 
   useEffect(() => {
     if (!accessToken) {
-      setError(new Error('Access token is required'));
+      setError(new Error("Access token is required"));
       setLoading(false);
       return;
     }
 
     const fetchTopTracks = async () => {
       try {
-        const response = await axios.get(`${config.SPOTIFY_API_BASE_URL}${config.SPOTIFY_TOP_TRACKS_ENDPOINT}`, {
-          headers: { Authorization: `Bearer ${accessToken}` },
-        });
+        const response = await axios.get(
+          `${config.SPOTIFY_API_BASE_URL}${config.SPOTIFY_TOP_TRACKS_ENDPOINT}`,
+          {
+            headers: { Authorization: `Bearer ${accessToken}` },
+          }
+        );
         setTopTracks(response.data.items);
+        setLoading(false);
       } catch (err) {
         setError(err);
-      } finally {
         setLoading(false);
       }
     };

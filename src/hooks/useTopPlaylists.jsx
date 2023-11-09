@@ -1,14 +1,14 @@
 // src/hooks/useTopPlaylists.jsx
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { AuthContext } from '../contexts/AuthContext';
-import config from '../config/config'; // Asegúrate de que la ruta sea correcta
+import config from '../config/config';
 
 const useTopPlaylists = () => {
-  const { accessToken } = useContext(AuthContext);
-  const [topPlaylists, setTopPlaylists] = useState([]);
+  const accessToken = localStorage.getItem("spotify_access_token");
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [topPlaylists, setTopPlaylists] = useState([]);
 
   useEffect(() => {
     if (!accessToken) {
@@ -23,9 +23,9 @@ const useTopPlaylists = () => {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
         setTopPlaylists(response.data.items);
+        setLoading(false);
       } catch (err) {
         setError(err);
-      } finally {
         setLoading(false);
       }
     };

@@ -5,7 +5,8 @@ import { AuthContext } from '../contexts/AuthContext';
 import config from '../config/config'; // Asegúrate de que la ruta sea correcta
 
 const useSpotifyApi = (endpoint) => {
-  const { accessToken } = useContext(AuthContext);
+  const accessToken = localStorage.getItem("spotify_access_token");
+
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
