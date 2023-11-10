@@ -1,0 +1,24 @@
+/* src/components/TrackList.css */
+.track-item {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .track-position {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  .track-info {
+    margin-right: 20px;
+    flex-grow: 1; /* Asegura que el texto ocupa el espacio disponible */
+  }
+  
+  .track-audio {
+    max-width: 200px; /* Ajusta según tus necesidades */
+  }
+  

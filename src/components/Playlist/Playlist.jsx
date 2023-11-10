@@ -1,11 +1,16 @@
-// src/components/Playlist/Playlist.jsx
+// src/components/Playlist.jsx
 import React from 'react';
+import './Playlist.css';
 
-const Playlist = ({ playlist }) => {
+const Playlist = ({ playlists }) => {
   return (
     <div>
-      <h3>{playlist.name}</h3>
-      {/* Más detalles de la playlist si es necesario */}
+      <h1>Playlists</h1>
+      <ul className="no-bullets-playlist">
+        {playlists.map((playlist, index) => (
+          <li key={index}>{playlist.name}</li>
+        ))}
+      </ul>
     </div>
   );
 };

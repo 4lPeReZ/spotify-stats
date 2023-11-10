@@ -1,50 +1,44 @@
-// src/pages/HomePage.jsx
-import React, { useEffect } from "react";
-import AuthButton from "../components/AuthButton/AuthButton";
+import React, { useState, useEffect } from "react";
+import TrackList from "../components/TrackList/TrackList";
+import ArtistList from "../components/ArtistList/ArtistList";
+import Playlist from "../components/Playlist/Playlist";
 import useTopTracks from "../hooks/useTopTracks";
 import useTopArtists from "../hooks/useTopArtists";
 import useTopPlaylists from "../hooks/useTopPlaylists";
-import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
-  const navigate = useNavigate();
-  const accessToken = localStorage.getItem("spotify_access_token");
-  const expirationTime = parseInt(localStorage.getItem("spotify_token_expiration"));
-
-  useEffect(() => {
-    const currentTime = new Date().getTime();
-
-    if (!accessToken || currentTime >= expirationTime) {
-      navigate("/login");
-    }
-  }, [navigate, accessToken, expirationTime]);
+  const [activeTab, setActiveTab] = useState("tracks");
+  const [playingAudio, setPlayingAudio] = useState(null);
 
   const {
     topTracks,
     loading: loadingTracks,
     error: tracksError,
   } = useTopTracks();
-  console.log("Contents of topTracks:", topTracks);
-
   const {
     topArtists,
     loading: loadingArtists,
     error: artistsError,
   } = useTopArtists();
-  console.log("Contents of topArtists:", topArtists);
-
   const {
     topPlaylists,
     loading: loadingPlaylists,
     error: playlistsError,
   } = useTopPlaylists();
-  console.log("Contents of topPlaylists:", topPlaylists);
 
-  if (loadingTracks || loadingArtists || loadingPlaylists) {
+  const handleAudioPlay = (audio) => {
+    if (playingAudio && playingAudio !== audio) {
+      playingAudio.pause();
+      playingAudio.currentTime = 0;
+    }
+    setPlayingAudio(audio);
+  };
+
+  // Gestión de carga y errores
+  if (loadingTracks || loadingArtists || loadingPlaylists)
     return <div>Loading...</div>;
-  }
-
   if (tracksError || artistsError || playlistsError) {
+    // Mostrar errores si los hay
     return (
       <div>
         {tracksError && <p>Error loading top tracks: {tracksError.message}</p>}
@@ -60,29 +54,17 @@ const HomePage = () => {
 
   return (
     <div>
-      <h1>Top Tracks</h1>
-      <ul>
-        {topTracks.map((track, index) => (
-          <li key={index}>
-            {track.name} by{" "}
-            {track.artists.map((artist) => artist.name).join(", ")}
-          </li>
-        ))}
-      </ul>
+      <div className="tabs">
+        <button onClick={() => setActiveTab("tracks")}>Top Tracks</button>
+        <button onClick={() => setActiveTab("artists")}>Top Artists</button>
+        <button onClick={() => setActiveTab("playlists")}>Playlists</button>
+      </div>
 
-      <h1>Top Artists</h1>
-      <ul>
-        {topArtists.map((artist, index) => (
-          <li key={index}>{artist.name}</li>
-        ))}
-      </ul>
-
-      <h1>Playlists</h1>
-      <ul>
-        {topPlaylists.map((playlist, index) => (
-          <li key={index}>{playlist.name}</li>
-        ))}
-      </ul>
+      {activeTab === "tracks" && (
+        <TrackList tracks={topTracks} onAudioPlay={handleAudioPlay} />
+      )}
+      {activeTab === "artists" && <ArtistList artists={topArtists} />}
+      {activeTab === "playlists" && <Playlist playlists={topPlaylists} />}
     </div>
   );
 };
