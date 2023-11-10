@@ -1,4 +1,36 @@
+/* src/components/ArtistList.css */
+.artist-list {
+    margin: 20px;
+}
+
 .no-bullets-artist {
     list-style-type: none;
     padding: 0;
+}
+
+.artist-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.artist-position {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.artist-name {
+    margin-right: 20px;
+}
+
+.artist-image {
+    width: 100px;
+    /* Ajusta el tamaño según tus necesidades */
+    height: 100px;
+    /* Ajusta el tamaño según tus necesidades */
+    margin-right: 10px;
+    border-radius: 50%;
+    /* Para hacer la imagen circular */
 }
