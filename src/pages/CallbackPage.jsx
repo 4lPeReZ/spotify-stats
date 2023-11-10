@@ -18,16 +18,17 @@ const CallbackPage = () => {
       }, {});
 
     const access_token = hashParams.access_token;
-    const expires_in = hashParams.expires_in; // Duración del token en segundos
+    const expires_in = parseInt(hashParams.expires_in); // Duración del token en segundos
 
-    if (access_token) {
+    if (access_token && expires_in) {
       const currentTime = new Date().getTime();
       const expiresInMilliseconds = expires_in * 1000;
+      const expirationTime = currentTime + expiresInMilliseconds;
+
       localStorage.setItem("spotify_access_token", access_token);
-      localStorage.setItem("spotify_token_timestamp", currentTime.toString());
       localStorage.setItem(
-        "spotify_token_expires_in",
-        expiresInMilliseconds.toString()
+        "spotify_token_expiration",
+        expirationTime.toString()
       );
 
       navigate("/"); // Redirige a la home page

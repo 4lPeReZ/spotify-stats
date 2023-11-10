@@ -6,21 +6,18 @@ import useTopArtists from "../hooks/useTopArtists";
 import useTopPlaylists from "../hooks/useTopPlaylists";
 import { useNavigate } from "react-router-dom";
 
-const TOKEN_EXPIRY_TIME = 3600 * 1000; // 1 hora en milisegundos
-
 const HomePage = () => {
   const navigate = useNavigate();
   const accessToken = localStorage.getItem("spotify_access_token");
-  const tokenTimestamp = localStorage.getItem("spotify_token_timestamp");
+  const expirationTime = parseInt(localStorage.getItem("spotify_token_expiration"));
 
   useEffect(() => {
-    const tokenObtainedTime = tokenTimestamp ? new Date(parseInt(tokenTimestamp)) : null;
-    const currentTime = new Date();
-    
-    if (!accessToken || (tokenObtainedTime && currentTime - tokenObtainedTime > TOKEN_EXPIRY_TIME)) {
+    const currentTime = new Date().getTime();
+
+    if (!accessToken || currentTime >= expirationTime) {
       navigate("/login");
     }
-  }, [navigate, accessToken, tokenTimestamp]);
+  }, [navigate, accessToken, expirationTime]);
 
   const {
     topTracks,
@@ -42,10 +39,6 @@ const HomePage = () => {
     error: playlistsError,
   } = useTopPlaylists();
   console.log("Contents of topPlaylists:", topPlaylists);
-
-  if (!accessToken) {
-    return <AuthButton />;
-  }
 
   if (loadingTracks || loadingArtists || loadingPlaylists) {
     return <div>Loading...</div>;
