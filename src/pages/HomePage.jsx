@@ -1,13 +1,26 @@
 // src/pages/HomePage.jsx
-import React from "react";
+import React, { useEffect } from "react";
 import AuthButton from "../components/AuthButton/AuthButton";
 import useTopTracks from "../hooks/useTopTracks";
 import useTopArtists from "../hooks/useTopArtists";
 import useTopPlaylists from "../hooks/useTopPlaylists";
+import { useNavigate } from "react-router-dom";
+
+const TOKEN_EXPIRY_TIME = 3600 * 1000; // 1 hora en milisegundos
 
 const HomePage = () => {
+  const navigate = useNavigate();
   const accessToken = localStorage.getItem("spotify_access_token");
-  console.log("Access Token:", accessToken);
+  const tokenTimestamp = localStorage.getItem("spotify_token_timestamp");
+
+  useEffect(() => {
+    const tokenObtainedTime = tokenTimestamp ? new Date(parseInt(tokenTimestamp)) : null;
+    const currentTime = new Date();
+    
+    if (!accessToken || (tokenObtainedTime && currentTime - tokenObtainedTime > TOKEN_EXPIRY_TIME)) {
+      navigate("/login");
+    }
+  }, [navigate, accessToken, tokenTimestamp]);
 
   const {
     topTracks,

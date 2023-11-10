@@ -18,26 +18,27 @@ const CallbackPage = () => {
       }, {});
 
     const access_token = hashParams.access_token;
+    const expires_in = hashParams.expires_in; // Duración del token en segundos
 
     if (access_token) {
+      const currentTime = new Date().getTime();
+      const expiresInMilliseconds = expires_in * 1000;
       localStorage.setItem("spotify_access_token", access_token);
-      // Solicitar confirmación del usuario antes de redirigir
-      if (window.confirm("Authentication successful! Do you want to proceed?")) {
-        navigate("/"); // Redirige a la home page después de la confirmación
-      }
+      localStorage.setItem("spotify_token_timestamp", currentTime.toString());
+      localStorage.setItem(
+        "spotify_token_expires_in",
+        expiresInMilliseconds.toString()
+      );
+
+      navigate("/"); // Redirige a la home page
     } else {
-      // Manejar la ausencia de access_token o errores
       setError("Failed to authenticate with Spotify.");
-      navigate("/"); // O redirige a una página de error o inicio de sesión
+      navigate("/login"); // Redirige a la página de login si no hay token
     }
   }, [location, navigate]);
 
   // Mostrar mensaje de carga o error
-  return (
-    <div>
-      {error ? <p>{error}</p> : <p>Loading...</p>}
-    </div>
-  );
+  return <div>{error ? <p>{error}</p> : <p>Loading...</p>}</div>;
 };
 
 export default CallbackPage;
