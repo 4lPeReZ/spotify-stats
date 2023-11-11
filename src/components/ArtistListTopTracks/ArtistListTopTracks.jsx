@@ -1,29 +1,29 @@
 // src/components/ArtistListTopTracks/ArtistListTopTracks.jsx
 import React, { useState } from 'react';
 import useArtistTopTracks from '../../hooks/useArtistTopTracks';
+import './ArtistListTopTracks.css';
 
-const ArtistListTopTracks = ({ artist, index }) => {
+const ArtistListTopTracks = ({ artist }) => {
   const [showTopTracks, setShowTopTracks] = useState(false);
   const { topTracks, loading, error } = useArtistTopTracks(showTopTracks ? artist.id : null);
 
   return (
-    <li className="artist-item">
-      <span className="artist-position">{index + 1}.</span>
+    <div className="artist-item">
       {artist.images && artist.images[0] && (
         <img src={artist.images[0].url} alt={artist.name} className="artist-image" />
       )}
       <span className="artist-name">{artist.name}</span>
       <button onClick={() => setShowTopTracks(!showTopTracks)}>Show Top Tracks</button>
       {showTopTracks && (
-        <ul>
-          {loading && <li>Loading...</li>}
-          {error && <li>Error loading tracks</li>}
-          {topTracks.map((track, index) => (
-            <li key={index}>{track.name}</li>
+        <div>
+          {loading && <span>Loading...</span>}
+          {error && <span>Error loading tracks</span>}
+          {topTracks && topTracks.map((track, index) => (
+            <div key={index}>{track.name}</div>
           ))}
-        </ul>
+        </div>
       )}
-    </li>
+    </div>
   );
 };
 

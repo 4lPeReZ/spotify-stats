@@ -1,0 +1,61 @@
+/* ArtistListTopTracks.css */
+
+.artist-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: var(--color-lighter);
+    /* Usando la variable de color */
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.artist-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+}
+
+.artist-image {
+    width: 60px;
+    /* Ajustar según necesidad */
+    height: 60px;
+    /* Ajustar según necesidad */
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.artist-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    flex-grow: 1;
+}
+
+.show-tracks-btn {
+    padding: 0.5rem 1rem;
+    background-color: var(--color-accent);
+    border: none;
+    border-radius: 0.25rem;
+    color: white;
+    cursor: pointer;
+}
+
+.show-tracks-btn:hover {
+    background-color: var(--color-darker);
+}
+
+.top-tracks-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0.5rem;
+    display: none;
+    /* Ocultar inicialmente */
+}
+
+.artist-item.show-tracks .top-tracks-list {
+    display: block;
+    /* Mostrar cuando se activa */
+}

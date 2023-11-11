@@ -1,36 +1,73 @@
 /* src/components/ArtistList.css */
-.artist-list {
-    margin: 20px;
+.artist-list h1 {
+    text-align: center;
 }
 
-.no-bullets-artist {
-    list-style-type: none;
-    padding: 0;
+.podium-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.podium {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+.podium-place {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.place-0 {
+    /* Primer lugar */
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.place-1 {
+    /* Segundo lugar */
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.place-2 {
+    /* Tercer lugar */
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.podium-number {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.other-artists {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 1rem;
 }
 
 .artist-item {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.artist-position {
-    margin-right: 10px;
-    font-weight: bold;
-}
-
-.artist-name {
-    margin-right: 20px;
+    margin-bottom: 0.5rem;
 }
 
 .artist-image {
-    width: 100px;
-    /* Ajusta el tamaño según tus necesidades */
-    height: 100px;
-    /* Ajusta el tamaño según tus necesidades */
-    margin-right: 10px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    /* Para hacer la imagen circular */
+    margin-right: 10px;
+}
+
+.artist-name {
+    font-weight: 500;
+    margin-right: 10px;
+}
+
+.artist-position {
+    font-weight: bold;
 }
