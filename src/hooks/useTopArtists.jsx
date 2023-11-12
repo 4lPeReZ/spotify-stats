@@ -22,7 +22,7 @@ const useTopArtists = () => {
     const fetchTopArtists = async () => {
       try {
         const response = await axios.get(
-          `${config.SPOTIFY_API_BASE_URL}${config.SPOTIFY_TOP_ARTISTS_ENDPOINT}`,
+          `${config.SPOTIFY_API_BASE_URL}${config.SPOTIFY_TOP_ARTISTS_ENDPOINT}?limit=10`,
           {
             headers: { Authorization: `Bearer ${accessToken}` },
           }
