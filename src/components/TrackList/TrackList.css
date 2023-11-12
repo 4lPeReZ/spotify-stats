@@ -1,24 +1,44 @@
-/* src/components/TrackList.css */
-.track-item {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 5px;
-  }
-  
-  .track-position {
-    margin-right: 10px;
-    font-weight: bold;
-  }
-  
-  .track-info {
-    margin-right: 20px;
-    flex-grow: 1; /* Asegura que el texto ocupa el espacio disponible */
-  }
-  
-  .track-audio {
-    max-width: 300px; /* Ajusta según tus necesidades */
-  }
-  
+.track-list {
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.track-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.track-card {
+  width: 200px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.track-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.track-details {
+  padding: 10px;
+}
+
+.track-position {
+  font-weight: bold;
+}
+
+.track-artist {
+  display: block; /* Asegura que el nombre del artista esté en una nueva línea */
+}
+
+.track-audio {
+  width: 100%; /* Asegura que el reproductor de audio se ajuste al ancho de la tarjeta */
+  margin-top: 10px;
+}
