@@ -1,0 +1,16 @@
+.user-profile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.user-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.user-name {
+    margin-left: 10px;
+    /* Aquí puedes añadir más estilos para el nombre, como color, tamaño de fuente, etc. */
+}

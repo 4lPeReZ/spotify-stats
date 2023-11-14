@@ -1,7 +1,7 @@
 // src/routes/index.js
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import HomePage from "../pages/HomePage";
+import HomePage from "../pages/HomePage/HomePage";
 import CallbackPage from "../pages/CallbackPage";
 import LoginPage from "../pages/LoginPage";
 

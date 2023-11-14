@@ -1,0 +1,70 @@
+/* HomePage.css */
+
+/* Estilo para el contenedor principal de la cabecera */
+.header-container {
+    position: fixed;
+    /* Fija la posición en la parte superior */
+    top: 0;
+    /* Alinea la parte superior del contenedor con la parte superior de la ventana */
+    left: 0;
+    /* Alinea el lado izquierdo del contenedor con el lado izquierdo de la ventana */
+    right: 0;
+    /* Alinea el lado derecho del contenedor con el lado derecho de la ventana */
+    height: 60px;
+    /* Altura fija para el contenedor */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    z-index: 1000;
+    max-width: 75%; /* Amplia el ancho pero manteniendo un margen */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px; /* Espacio en la parte superior */
+    box-sizing: border-box;
+}
+
+/* Estilo para el contenedor de las tabs */
+.tabs-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilos para los botones dentro del contenedor de las tabs */
+.tabs-container button {
+    margin-right: 10px;
+    /* Espacio entre botones */
+    padding: 8px 15px;
+    /* Relleno para hacer los botones más grandes y fáciles de clickear */
+    background-color: #afaaaa;
+    /* Color de fondo para los botones */
+    border: 1px solid #dcdcdc;
+    /* Borde sutil para los botones */
+    border-radius: 4px;
+    /* Bordes redondeados para los botones */
+    cursor: pointer;
+    /* Cambiar el cursor al pasar el ratón sobre los botones */
+    transition: background-color 0.3s;
+    /* Transición suave para el hover */
+}
+
+/* Cambio de estilo al pasar el ratón sobre los botones */
+.tabs-container button:hover {
+    background-color: var(--color-lighter);
+    /* Cambio de color al pasar el ratón */
+}
+
+/* Estilo para el botón activo (si se implementa) */
+.tabs-container button.active {
+    background-color: #d1d1d1;
+    /* Color diferente para el botón activo */
+}
+
+/* Estilos adicionales para el UserProfile si es necesario */
+.main-content {
+    padding-top: 80px; /* Espacio adicional en la parte superior para la cabecera */
+    max-width: 95%; /* Amplia el ancho pero manteniendo un margen */
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
