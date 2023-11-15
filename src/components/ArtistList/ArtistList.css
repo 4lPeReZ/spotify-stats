@@ -36,6 +36,7 @@
 
 .artist-details {
   margin-top: 10px;
+  color: var(--color-background);
 }
 
 .artist-position {

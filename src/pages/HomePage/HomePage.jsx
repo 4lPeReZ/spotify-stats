@@ -64,9 +64,24 @@ const HomePage = () => {
     <div>
       <div className="header-container">
         <div className="tabs-container">
-          <button onClick={() => setActiveTab("tracks")} className={activeTab === "tracks" ? "active" : ""}>Top Tracks</button>
-          <button onClick={() => setActiveTab("artists")} className={activeTab === "artists" ? "active" : ""}>Top Artists</button>
-          <button onClick={() => setActiveTab("playlists")} className={activeTab === "playlists" ? "active" : ""}>Playlists</button>
+          <button
+            onClick={() => setActiveTab("tracks")}
+            className={activeTab === "tracks" ? "active" : ""}
+          >
+            Top Tracks
+          </button>
+          <button
+            onClick={() => setActiveTab("artists")}
+            className={activeTab === "artists" ? "active" : ""}
+          >
+            Top Artists
+          </button>
+          <button
+            onClick={() => setActiveTab("playlists")}
+            className={activeTab === "playlists" ? "active" : ""}
+          >
+            Playlists
+          </button>
         </div>
         <UserProfile user={userInfo} />
       </div>

@@ -3,31 +3,28 @@
 /* Estilo para el contenedor principal de la cabecera */
 .header-container {
     position: fixed;
-    /* Fija la posición en la parte superior */
     top: 0;
-    /* Alinea la parte superior del contenedor con la parte superior de la ventana */
     left: 0;
-    /* Alinea el lado izquierdo del contenedor con el lado izquierdo de la ventana */
     right: 0;
-    /* Alinea el lado derecho del contenedor con el lado derecho de la ventana */
-    height: 60px;
-    /* Altura fija para el contenedor */
+    height: 10%;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    /* Cambiado a center */
     align-items: center;
     padding: 10px;
     z-index: 1000;
-    max-width: 75%; /* Amplia el ancho pero manteniendo un margen */
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20px; /* Espacio en la parte superior */
     box-sizing: border-box;
+    background-color: var(--color-complementary);
 }
 
 /* Estilo para el contenedor de las tabs */
 .tabs-container {
     display: flex;
     align-items: center;
+    margin-right: 30%; /* Añade un margen derecho a cada elemento excepto el último */
 }
 
 /* Estilos para los botones dentro del contenedor de las tabs */
@@ -66,8 +63,9 @@
 
 /* Estilos adicionales para el UserProfile si es necesario */
 .main-content {
-    padding-top: 80px; /* Espacio adicional en la parte superior para la cabecera */
-    max-width: 95%; /* Amplia el ancho pero manteniendo un margen */
+    padding-top: 80px;
+    /* Asegúrate de que este valor sea igual o mayor a la altura del header-container */
+    max-width: 95%;
     margin-left: auto;
     margin-right: auto;
     box-sizing: border-box;

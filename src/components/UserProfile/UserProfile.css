@@ -12,5 +12,6 @@
 
 .user-name {
     margin-left: 10px;
+    color: var(--color-background);
     /* Aquí puedes añadir más estilos para el nombre, como color, tamaño de fuente, etc. */
 }
