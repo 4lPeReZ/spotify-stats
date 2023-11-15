@@ -1,0 +1,24 @@
+/* FooterLogin.css */
+
+.footer-login {
+    text-align: center;
+    padding: 20px;
+    /* otros estilos necesarios */
+  }
+  
+  .footer-text {
+    margin: 0;
+    font-size: 1em; /* Ajusta el tamaño de la fuente según sea necesario */
+    display: inline-block; /* Hace que el texto sea en línea para alinear con el ícono */
+  }
+  
+  .github-link, .github-icon-link {
+    margin-left: 5px; /* Espacio entre el texto y el ícono/enlace */
+    vertical-align: middle; /* Alinea verticalmente el ícono con el texto */
+  }
+  
+  .github-icon {
+    width: 24px; /* Tamaño del ícono de GitHub */
+    vertical-align: middle; /* Alineación vertical con el texto */
+  }
+  

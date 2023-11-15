@@ -1,0 +1,26 @@
+/* LoginPage.css */
+
+.login-container {
+    text-align: center;
+    padding: 20px;
+    /* Añade estilos responsivos y visuales aquí */
+  }
+  
+  .login-container h1 {
+    color: #1DB954; /* Color distintivo de Spotify */
+    /* Otros estilos para el título */
+  }
+  
+  .login-container {
+    font-family: 'Montserrat', sans-serif; /* Usar Montserrat como fuente principal */
+    /* otros estilos */
+  }
+  
+  .privacy-info {
+    margin-top: 20px;
+    font-size: 0.9em;
+    /* Estilos para la información de privacidad */
+  }
+  
+  /* Añade estilos para animaciones y responsividad */
+  

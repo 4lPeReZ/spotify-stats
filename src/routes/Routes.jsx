@@ -3,7 +3,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "../pages/HomePage/HomePage";
 import CallbackPage from "../pages/CallbackPage";
-import LoginPage from "../pages/LoginPage";
+import LoginPage from "../pages/LoginPage/LoginPage";
 
 // ...otros imports
 
