@@ -34,6 +34,11 @@
   display: block;
 }
 
+.track-artist {
+  color: var(--color-pale-green);
+  font-weight: normal;
+}
+
 .track-details {
   padding: 10px;
   position: relative; /* Posición relativa para permitir el posicionamiento absoluto del audio */
@@ -42,9 +47,15 @@
   color: var(--color-background);
 }
 
-.track-position, .track-artist {
+.track-position {
   display: block; /* Asegura que cada elemento esté en su propia línea */
   font-weight: bold;
+}
+
+.track-artist {
+  display: block; /* Asegura que cada elemento esté en su propia línea */
+  color: var(--color-background);
+  font-weight: lighter;
 }
 
 .track-audio {

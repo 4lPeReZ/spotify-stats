@@ -1,6 +1,13 @@
 import React from "react";
 import "./TrackList.css";
 
+function truncateText(text, maxLength) {
+  if (text.length > maxLength) {
+    return text.substring(0, maxLength) + "...";
+  }
+  return text;
+}
+
 const TrackList = ({ tracks, onAudioPlay }) => {
   return (
     <div className="track-list">
@@ -17,11 +24,9 @@ const TrackList = ({ tracks, onAudioPlay }) => {
             )}
             <div className="track-details">
               <span className="track-position">
-                {index + 1}. {track.name}
+                {truncateText(`${index + 1}. ${track.name}`, 35)}
               </span>
-              <span className="track-artist">
-                {track.artists[0].name}
-              </span>
+              <span className="track-artist">{track.artists[0].name}</span>
               {track.preview_url && (
                 <audio
                   controls
