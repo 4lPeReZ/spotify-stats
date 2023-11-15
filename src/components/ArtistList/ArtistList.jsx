@@ -18,13 +18,12 @@ const ArtistCard = ({ artist, index }) => (
 );
 
 const ArtistList = ({ artists }) => {
-  const top10Artists = artists.slice(0, 10);
 
   return (
     <div className="artist-list-container">
       <h1>Top 10 Artists</h1>
       <div className="artist-card-container">
-        {top10Artists.map((artist, index) => (
+        {artists.map((artist, index) => (
           <ArtistCard key={artist.id} artist={artist} index={index} />
         ))}
       </div>

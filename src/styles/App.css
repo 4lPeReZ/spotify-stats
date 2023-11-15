@@ -5,6 +5,14 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  color: var(--color-complementary);
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
 }
 
 .logo {

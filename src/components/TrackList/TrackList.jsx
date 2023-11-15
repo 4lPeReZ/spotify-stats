@@ -20,7 +20,7 @@ const TrackList = ({ tracks, onAudioPlay }) => {
                 {index + 1}. {track.name}
               </span>
               <span className="track-artist">
-                by {track.artists.map((artist) => artist.name).join(", ")}
+                {track.artists[0].name}
               </span>
               {track.preview_url && (
                 <audio

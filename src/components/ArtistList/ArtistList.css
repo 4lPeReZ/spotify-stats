@@ -1,60 +1,49 @@
 .artist-list-container {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: var(--juniper-500);
-    font-weight: bold;
-  }
-  
-  .artist-card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px; /* Espacio entre tarjetas */
-    max-width: 1100px; /* Ajusta este valor para adecuar el ancho total */
-    margin: auto; /* Centra el contenedor */
-  }
-  
-  .artist-card {
-    flex: 0 0 calc((100% / 6) - 20px - 1px); /* Ajuste para que quepan 5 tarjetas en una fila */
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid var(--juniper-400);
-    border-radius: 5px;
-    background-color: var(--juniper-100);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-  }
-  
-  
-  .artist-card:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: translateY(-5px);
-  }
-  
-  .artist-image img {
-    max-width: 100%;
-    border-radius: 5px;
-    display: block;
-  }
-  
-  .artist-details {
-    margin-top: 10px;
-  }
-  
-  .artist-position {
-    font-weight: bold;
-    font-size: 18px;
-    color: var(--juniper-600);
-  }
-  
-  .artist-name {
-    font-size: 16px;
-    color: var(--juniper-500);
-    display: block;
-  }
-  
+  text-align: center;
+
+}
+
+.artist-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.artist-card {
+  width: 200px;
+  height: 300px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--color-accent);
+  background-color: var(--color-complementary);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave agregada */
+}
+
+.artist-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+.artist-image img {
+  width: 100%; /* Ancho completo */
+  height: 200px; /* Altura fija */
+  object-fit: cover; /* Asegura que la imagen se recorte para caber en el contenedor */
+  object-position: center; /* Centra la imagen en el contenedor */
+  display: block;
+}
+
+.artist-details {
+  margin-top: 10px;
+}
+
+.artist-position {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.artist-name {
+  font-size: 16px;
+  display: block;
+}

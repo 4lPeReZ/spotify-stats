@@ -1,26 +1,33 @@
 /* LoginPage.css */
+@import url('../../styles/variables.css');
+
+html,
+body {
+    background: rgb(29, 185, 84);
+    background: radial-gradient(circle, rgba(29, 185, 84, 1) 0%, rgba(27, 104, 53, 1) 50%, rgba(25, 20, 20, 1) 100%);
+}
 
 .login-container {
     text-align: center;
     padding: 20px;
     /* Añade estilos responsivos y visuales aquí */
-  }
-  
-  .login-container h1 {
-    color: #1DB954; /* Color distintivo de Spotify */
+}
+
+.login-container h1 {
+    color: var(--color-complementary);
     /* Otros estilos para el título */
-  }
-  
-  .login-container {
-    font-family: 'Montserrat', sans-serif; /* Usar Montserrat como fuente principal */
+}
+
+.login-container {
+    font-family: 'Montserrat', sans-serif;
+    /* Usar Montserrat como fuente principal */
     /* otros estilos */
-  }
-  
-  .privacy-info {
+}
+
+.privacy-info {
     margin-top: 20px;
     font-size: 0.9em;
     /* Estilos para la información de privacidad */
-  }
-  
-  /* Añade estilos para animaciones y responsividad */
-  
+}
+
+/* Añade estilos para animaciones y responsividad */

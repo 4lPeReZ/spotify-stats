@@ -1,6 +1,7 @@
 // src/components/AuthButton/AuthButton.jsx
 import React from 'react';
 import config from '../../config/config';
+import './AuthButton.css';
 
 const AuthButton = () => {
   const handleLogin = () => {
@@ -14,7 +15,7 @@ const AuthButton = () => {
     window.location.href = url; // Redirige al usuario a la URL de autenticación de Spotify
   };
 
-  return <button onClick={handleLogin}>Login with Spotify</button>;
+  return <button className='button-login' onClick={handleLogin}>Login with Spotify</button>;
 };
 
 function generateRandomString(length) {

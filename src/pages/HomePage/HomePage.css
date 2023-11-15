@@ -36,9 +36,9 @@
     /* Espacio entre botones */
     padding: 8px 15px;
     /* Relleno para hacer los botones más grandes y fáciles de clickear */
-    background-color: #afaaaa;
+    background-color: var(--color-darker);
     /* Color de fondo para los botones */
-    border: 1px solid #dcdcdc;
+    border: 1px solid var(--color-very-dark);
     /* Borde sutil para los botones */
     border-radius: 4px;
     /* Bordes redondeados para los botones */
@@ -46,17 +46,21 @@
     /* Cambiar el cursor al pasar el ratón sobre los botones */
     transition: background-color 0.3s;
     /* Transición suave para el hover */
+    color: var(--color-very-dark);
 }
 
 /* Cambio de estilo al pasar el ratón sobre los botones */
 .tabs-container button:hover {
-    background-color: var(--color-lighter);
+    background-color: var(--color-base);
+    border: 1px solid var(--color-background);
     /* Cambio de color al pasar el ratón */
 }
 
 /* Estilo para el botón activo (si se implementa) */
 .tabs-container button.active {
-    background-color: #d1d1d1;
+    background-color: var(--color-base);
+    color: var(--color-very-dark);
+    border: 1px solid var(--color-very-dark);
     /* Color diferente para el botón activo */
 }
 
