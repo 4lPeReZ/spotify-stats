@@ -3,7 +3,7 @@ import React from "react";
 import "./ArtistList.css";
 
 const ArtistCard = ({ artist, index }) => (
-  <div className="artist-card">
+  <div className="artist-card fade-in" style={{ animationDelay: `${index * 0.15}s` }}>
     <div className="artist-image">
       <img
         src={artist.images?.[0]?.url || "default-placeholder-image.jpg"}
@@ -21,7 +21,7 @@ const ArtistList = ({ artists }) => {
 
   return (
     <div className="artist-list-container">
-      <h1>Top 10 Artists</h1>
+      <h1>Top Artists</h1>
       <div className="artist-card-container">
         {artists.map((artist, index) => (
           <ArtistCard key={artist.id} artist={artist} index={index} />

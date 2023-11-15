@@ -1,6 +1,6 @@
 .artist-list-container {
   text-align: center;
-
+  overflow-y: hidden;
 }
 
 .artist-card-container {
@@ -47,4 +47,20 @@
 .artist-name {
   font-size: 16px;
   display: block;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  opacity: 0; /* Inicia con la tarjeta oculta */
+  animation: fadeInUp 0.5s ease-out forwards; /* 'forwards' mantiene el estado final de la animación */
 }

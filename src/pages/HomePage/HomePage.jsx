@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TrackList from "../../components/TrackList/TrackList";
 import ArtistList from "../../components/ArtistList/ArtistList";
 import Playlist from "../../components/Playlist/Playlist";
@@ -11,6 +11,7 @@ import "./HomePage.css";
 
 const HomePage = () => {
   const [activeTab, setActiveTab] = useState("tracks");
+  const [prevTab, setPrevTab] = useState(null);
   const [playingAudio, setPlayingAudio] = useState(null);
 
   const {
@@ -39,6 +40,17 @@ const HomePage = () => {
       playingAudio.currentTime = 0;
     }
     setPlayingAudio(audio);
+  };
+
+  useEffect(() => {
+    setPrevTab(activeTab);
+  }, [activeTab]);
+
+  const getAnimationClass = (tabName) => {
+    if (tabName === activeTab) {
+      return "slide-left-enter";
+    }
+    return "";
   };
 
   // Gestión de carga y errores
@@ -85,14 +97,19 @@ const HomePage = () => {
         </div>
         <UserProfile user={userInfo} />
       </div>
-
       <div className="main-content">
+      <div className={`tab-content ${activeTab === "tracks" ? "slide-in" : ""}`}>
         {activeTab === "tracks" && (
           <TrackList tracks={topTracks} onAudioPlay={handleAudioPlay} />
         )}
+      </div>
+      <div className={`tab-content ${activeTab === "artists" ? "slide-in" : ""}`}>
         {activeTab === "artists" && <ArtistList artists={topArtists} />}
+      </div>
+      <div className={`tab-content ${activeTab === "playlists" ? "slide-in" : ""}`}>
         {activeTab === "playlists" && <Playlist playlists={topPlaylists} />}
       </div>
+    </div>
     </div>
   );
 };

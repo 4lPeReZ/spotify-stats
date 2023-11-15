@@ -7,6 +7,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  overflow-y: hidden;
 }
 
 .track-card {
@@ -69,4 +70,20 @@
   background-color: #06130b;
   border: 2px solid var(--color-accent);
   border-radius: 5px;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  opacity: 0; /* Inicia con la tarjeta oculta */
+  animation: fadeInUp 0.5s ease-out forwards; /* 'forwards' mantiene el estado final de la animación */
 }

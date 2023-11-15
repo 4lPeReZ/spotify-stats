@@ -14,7 +14,11 @@ const TrackList = ({ tracks, onAudioPlay }) => {
       <h1>Top Tracks</h1>
       <div className="track-card-container">
         {tracks.map((track, index) => (
-          <div key={index} className="track-card">
+          <div
+            key={index}
+            className="track-card fade-in"
+            style={{ animationDelay: `${index * 0.15}s` }}
+          >
             {track.album.images[0] && (
               <img
                 src={track.album.images[0].url}

@@ -24,7 +24,8 @@
 .tabs-container {
     display: flex;
     align-items: center;
-    margin-right: 30%; /* Añade un margen derecho a cada elemento excepto el último */
+    margin-right: 30%;
+    /* Añade un margen derecho a cada elemento excepto el último */
 }
 
 /* Estilos para los botones dentro del contenedor de las tabs */
@@ -69,4 +70,19 @@
     margin-left: auto;
     margin-right: auto;
     box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+@keyframes slideFromRight {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.slide-in {
+    animation: slideFromRight 0.5s forwards;
 }
