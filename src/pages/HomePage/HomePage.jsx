@@ -46,13 +46,6 @@ const HomePage = () => {
     setPrevTab(activeTab);
   }, [activeTab]);
 
-  const getAnimationClass = (tabName) => {
-    if (tabName === activeTab) {
-      return "slide-left-enter";
-    }
-    return "";
-  };
-
   // Gestión de carga y errores
   if (loadingTracks || loadingArtists || loadingPlaylists || loadingUser) {
     return <div>Loading...</div>;

@@ -1,5 +1,6 @@
 .track-list {
   text-align: center;
+  overflow-y: hidden;
 }
 
 .track-card-container {
@@ -7,7 +8,6 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  overflow-y: hidden;
 }
 
 .track-card {
@@ -19,7 +19,6 @@
   background-color: var(--color-complementary);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative; /* Posición relativa para el contenedor */
 }
 
 .track-card:hover {
@@ -73,17 +72,17 @@
 }
 
 @keyframes fadeInUp {
-  0% {
+  from {
     opacity: 0;
     transform: translateY(20px);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
 .fade-in {
-  opacity: 0; /* Inicia con la tarjeta oculta */
-  animation: fadeInUp 0.5s ease-out forwards; /* 'forwards' mantiene el estado final de la animación */
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
 }

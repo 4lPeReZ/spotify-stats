@@ -9,10 +9,11 @@
 }
 
 h1 {
-  color: var(--color-complementary);
+  color: var(--color-background);
   font-size: 24px;
   margin-bottom: 20px;
   font-weight: bold;
+  -webkit-text-stroke: 0.3px var(--color-background);
 }
 
 .logo {
