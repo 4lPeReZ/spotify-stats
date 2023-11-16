@@ -9,10 +9,15 @@ import useTopPlaylists from "../../hooks/useTopPlaylists";
 import useUserLogin from "../../hooks/useUserLogin";
 import "./HomePage.css";
 
+const loadingGifUrl =
+  "https://media.tenor.com/FawYo00tBekAAAAC/loading-thinking.gif";
+
+
 const HomePage = () => {
   const [activeTab, setActiveTab] = useState("tracks");
   const [prevTab, setPrevTab] = useState(null);
   const [playingAudio, setPlayingAudio] = useState(null);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const {
     topTracks,
@@ -48,7 +53,7 @@ const HomePage = () => {
 
   // Gestión de carga y errores
   if (loadingTracks || loadingArtists || loadingPlaylists || loadingUser) {
-    return <div>Loading...</div>;
+    return <img src={loadingGifUrl} alt="Loading..." className="loading-gif" />;
   }
   if (tracksError || artistsError || playlistsError || userError) {
     return (

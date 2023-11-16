@@ -56,3 +56,10 @@
 .dropdown-item:hover {
     text-decoration: underline;
 }
+
+.loading-gif {
+    width: 50px;
+    /* O el tamaño que prefieras */
+    height: 50px;
+    /* Otros estilos que necesites */
+}

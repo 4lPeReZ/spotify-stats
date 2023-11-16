@@ -86,3 +86,10 @@
 .slide-in {
     animation: slideFromRight 0.5s forwards;
 }
+
+.loading-gif {
+    width: 500px;
+    /* O el tamaño que prefieras */
+    height: 500px;
+    /* Otros estilos que necesites */
+}
