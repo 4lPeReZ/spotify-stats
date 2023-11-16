@@ -26,7 +26,9 @@ const ArtistCard = ({ artist, index }) => {
       </div>
       <div className="artist-details">
         <span className="artist-position">{index + 1}</span>
-        <span className="artist-name">{artist.name}</span>
+        <a href={artist.external_urls.spotify} target="_blank" rel="noopener noreferrer" className="artist-name">
+          {artist.name}
+        </a>
       </div>
     </div>
   );

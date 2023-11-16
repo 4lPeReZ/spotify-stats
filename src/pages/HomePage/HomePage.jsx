@@ -53,7 +53,7 @@ const HomePage = () => {
 
   // Gestión de carga y errores
   if (loadingTracks || loadingArtists || loadingPlaylists || loadingUser) {
-    return <img src={loadingGifUrl} alt="Loading..." className="loading-gif" />;
+    return <img src={loadingGifUrl} alt="Loading..." className="loading-gif-homepage" />;
   }
   if (tracksError || artistsError || playlistsError || userError) {
     return (

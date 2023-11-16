@@ -33,7 +33,9 @@ const TrackCard = ({ track, index, onAudioPlay }) => {
       )}
       <div className="track-details">
         <span className="track-position">
+          <a href={track.external_urls.spotify} target="_blank" rel="noopener noreferrer" className="track-name">
           {truncateText(`${index + 1}. ${track.name}`, 35)}
+        </a>
         </span>
         <span className="track-artist">{track.artists[0].name}</span>
         {track.preview_url && (

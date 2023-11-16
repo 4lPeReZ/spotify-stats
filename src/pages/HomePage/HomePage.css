@@ -87,9 +87,10 @@
     animation: slideFromRight 0.5s forwards;
 }
 
-.loading-gif {
-    width: 500px;
+.loading-gif-homepage {
+    width: 400px;
     /* O el tamaño que prefieras */
-    height: 500px;
+    height: 400px;
     /* Otros estilos que necesites */
+    border-radius: 50%;
 }

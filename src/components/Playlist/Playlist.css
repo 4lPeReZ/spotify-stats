@@ -1,4 +1,81 @@
-.no-bullets-playlist {
-    list-style-type: none;
-    padding: 0;
+.playlist-list-container {
+    text-align: center;
+    overflow-y: hidden;
+}
+
+.playlist-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.playlist-card {
+    width: 200px;
+    height: 300px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--color-accent);
+    background-color: var(--color-complementary);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Transición suave agregada */
+}
+
+.playlist-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+.playlist-image img {
+    width: 100%;
+    /* Ancho completo */
+    height: 200px;
+    /* Altura fija */
+    object-fit: cover;
+    /* Asegura que la imagen se recorte para caber en el contenedor */
+    object-position: center;
+    /* Centra la imagen en el contenedor */
+    display: block;
+}
+
+.playlist-details {
+    margin-top: 10px;
+    color: var(--color-background);
+}
+
+.playlist-position {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.playlist-name {
+    font-size: 16px;
+    display: block;
+    color: var(--color-background);
+    text-decoration: none;
+}
+
+.playlist-name:hover {
+    text-decoration: underline;
+    color: var(--color-base);
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    /* Inicia con la tarjeta oculta */
+    animation: fadeInUp 0.5s ease-out forwards;
+    /* 'forwards' mantiene el estado final de la animación */
 }

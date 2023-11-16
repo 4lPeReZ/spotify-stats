@@ -62,4 +62,5 @@
     /* O el tamaño que prefieras */
     height: 50px;
     /* Otros estilos que necesites */
+    border-radius: 50%;
 }

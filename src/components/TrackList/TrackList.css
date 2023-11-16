@@ -58,6 +58,19 @@
   font-weight: lighter;
 }
 
+.track-name {
+  font-size: 16px;
+  display: block;
+  color: var(--color-background);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.track-name:hover {
+  text-decoration: underline;
+  color: var(--color-base);
+}
+
 .track-audio {
   position: absolute;
   bottom: 25px; /* Alineado al fondo con un pequeño margen */

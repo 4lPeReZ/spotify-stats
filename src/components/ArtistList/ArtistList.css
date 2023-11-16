@@ -18,7 +18,8 @@
   border: 1px solid var(--color-accent);
   background-color: var(--color-complementary);
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave agregada */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Transición suave agregada */
 }
 
 .artist-card:hover {
@@ -27,10 +28,14 @@
 }
 
 .artist-image img {
-  width: 100%; /* Ancho completo */
-  height: 200px; /* Altura fija */
-  object-fit: cover; /* Asegura que la imagen se recorte para caber en el contenedor */
-  object-position: center; /* Centra la imagen en el contenedor */
+  width: 100%;
+  /* Ancho completo */
+  height: 200px;
+  /* Altura fija */
+  object-fit: cover;
+  /* Asegura que la imagen se recorte para caber en el contenedor */
+  object-position: center;
+  /* Centra la imagen en el contenedor */
   display: block;
 }
 
@@ -47,6 +52,13 @@
 .artist-name {
   font-size: 16px;
   display: block;
+  color: var(--color-background);
+  text-decoration: none;
+}
+
+.artist-name:hover {
+  text-decoration: underline;
+  color: var(--color-base);
 }
 
 @keyframes fadeInUp {
@@ -54,6 +66,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -61,6 +74,8 @@
 }
 
 .fade-in {
-  opacity: 0; /* Inicia con la tarjeta oculta */
-  animation: fadeInUp 0.5s ease-out forwards; /* 'forwards' mantiene el estado final de la animación */
+  opacity: 0;
+  /* Inicia con la tarjeta oculta */
+  animation: fadeInUp 0.5s ease-out forwards;
+  /* 'forwards' mantiene el estado final de la animación */
 }
