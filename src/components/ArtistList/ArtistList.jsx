@@ -8,7 +8,7 @@ const ArtistCard = ({ artist, index }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsAnimating(false);
-    }, (index * 0.15 + 0.5) * 1000); // El tiempo total de la animación
+    }, (index * 0.15 + 0.5) * 1500); // El tiempo total de la animación
 
     return () => clearTimeout(timer);
   }, [index]);
