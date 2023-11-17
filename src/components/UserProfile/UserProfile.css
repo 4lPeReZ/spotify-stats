@@ -1,3 +1,5 @@
+/* Estilos existentes... */
+
 .user-profile {
     display: flex;
     align-items: center;
@@ -63,4 +65,34 @@
     height: 50px;
     /* Otros estilos que necesites */
     border-radius: 50%;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .user-profile {
+        justify-content: center;
+        /* Centra el perfil del usuario en tabletas */
+    }
+
+    .user-dropdown-menu {
+        left: 50%;
+        /* Posiciona el menú desplegable centrado debajo del perfil */
+        transform: translateX(-50%) translateY(-10px);
+        /* Ajusta la posición */
+    }
+}
+
+@media (max-width: 480px) {
+    .user-name {
+        display: none;
+        /* Oculta el nombre en pantallas pequeñas para ahorrar espacio */
+    }
+
+    .user-dropdown-menu {
+        width: 100%;
+        /* El menú desplegable ocupa todo el ancho en pantallas pequeñas */
+        left: 0;
+        /* Ajusta la posición */
+        transform: translateY(-10px);
+    }
 }

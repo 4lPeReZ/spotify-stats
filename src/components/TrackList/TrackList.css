@@ -41,19 +41,24 @@
 
 .track-details {
   padding: 10px;
-  position: relative; /* Posición relativa para permitir el posicionamiento absoluto del audio */
-  height: calc(100% - 210px); /* Altura ajustada para acomodar la imagen y el audio */
-  overflow-y: auto; /* Permite desplazamiento si el contenido es largo */
+  position: relative;
+  /* Posición relativa para permitir el posicionamiento absoluto del audio */
+  height: calc(100% - 210px);
+  /* Altura ajustada para acomodar la imagen y el audio */
+  overflow-y: auto;
+  /* Permite desplazamiento si el contenido es largo */
   color: var(--color-background);
 }
 
 .track-position {
-  display: block; /* Asegura que cada elemento esté en su propia línea */
+  display: block;
+  /* Asegura que cada elemento esté en su propia línea */
   font-weight: bold;
 }
 
 .track-artist {
-  display: block; /* Asegura que cada elemento esté en su propia línea */
+  display: block;
+  /* Asegura que cada elemento esté en su propia línea */
   color: var(--color-background);
   font-weight: lighter;
 }
@@ -73,12 +78,16 @@
 
 .track-audio {
   position: absolute;
-  bottom: 25px; /* Alineado al fondo con un pequeño margen */
+  bottom: 25px;
+  /* Alineado al fondo con un pequeño margen */
   left: 0;
   right: 0;
-  width: 80%; /* Ancho del reproductor de audio como un porcentaje del contenedor padre */
-  max-width: 160px; /* Ancho máximo para el reproductor de audio */
-  margin: auto; /* Centra el reproductor de audio horizontalmente */
+  width: 80%;
+  /* Ancho del reproductor de audio como un porcentaje del contenedor padre */
+  max-width: 160px;
+  /* Ancho máximo para el reproductor de audio */
+  margin: auto;
+  /* Centra el reproductor de audio horizontalmente */
   background-color: #06130b;
   border: 2px solid var(--color-accent);
   border-radius: 5px;
@@ -89,6 +98,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -98,4 +108,61 @@
 .fade-in {
   opacity: 0;
   animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+  .track-card {
+    width: 150px;
+    /* Tamaño más pequeño para pantallas de tabletas */
+    height: 300px;
+    /* Altura ajustada */
+  }
+
+  .track-image {
+    height: 150px;
+    /* Altura ajustada de la imagen */
+  }
+
+  .track-details {
+    height: calc(100% - 160px);
+    /* Altura ajustada para acomodar la imagen ajustada y el audio */
+  }
+
+  .track-audio {
+    width: 70%;
+    /* Ancho ajustado del reproductor de audio */
+    max-width: 140px;
+    /* Ancho máximo ajustado */
+  }
+}
+
+@media (max-width: 480px) {
+  .track-card-container {
+    gap: 10px;
+  }
+
+  .track-card {
+    width: 100%;
+    /* Las tarjetas ocupan todo el ancho en pantallas de teléfonos móviles */
+    height: auto;
+    /* Altura automática para mantener la proporción */
+  }
+
+  .track-image {
+    height: auto;
+    /* Altura automática para mantener la proporción */
+  }
+
+  .track-details {
+    height: 130px;
+    /* Altura automática para adaptarse al contenido */
+  }
+
+  .track-audio {
+    width: 100%;
+    /* Ancho ajustado del reproductor de audio */
+    max-width: 250px;
+    /* Ancho máximo ajustado */
+  }
 }

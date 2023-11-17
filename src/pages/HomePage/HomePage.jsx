@@ -12,12 +12,11 @@ import "./HomePage.css";
 const loadingGifUrl =
   "https://media.tenor.com/FawYo00tBekAAAAC/loading-thinking.gif";
 
-
 const HomePage = () => {
   const [activeTab, setActiveTab] = useState("tracks");
   const [prevTab, setPrevTab] = useState(null);
   const [playingAudio, setPlayingAudio] = useState(null);
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const {
     topTracks,
@@ -53,7 +52,13 @@ const HomePage = () => {
 
   // Gestión de carga y errores
   if (loadingTracks || loadingArtists || loadingPlaylists || loadingUser) {
-    return <img src={loadingGifUrl} alt="Loading..." className="loading-gif-homepage" />;
+    return (
+      <img
+        src={loadingGifUrl}
+        alt="Loading..."
+        className="loading-gif-homepage"
+      />
+    );
   }
   if (tracksError || artistsError || playlistsError || userError) {
     return (
@@ -73,41 +78,66 @@ const HomePage = () => {
   return (
     <div>
       <div className="header-container">
-        <div className="tabs-container">
+        <button
+          className="hamburger-button"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          ☰ {/* Puedes reemplazar esto con un ícono más estético */}
+        </button>
+
+        <div className={`tabs-container ${isMenuOpen ? "show" : ""}`}>
           <button
-            onClick={() => setActiveTab("tracks")}
+            onClick={() => {
+              setActiveTab("tracks");
+              setIsMenuOpen(false);
+            }}
             className={activeTab === "tracks" ? "active" : ""}
           >
             Top Tracks
           </button>
           <button
-            onClick={() => setActiveTab("artists")}
+            onClick={() => {
+              setActiveTab("artists");
+              setIsMenuOpen(false);
+            }}
             className={activeTab === "artists" ? "active" : ""}
           >
             Top Artists
           </button>
           <button
-            onClick={() => setActiveTab("playlists")}
+            onClick={() => {
+              setActiveTab("playlists");
+              setIsMenuOpen(false);
+            }}
             className={activeTab === "playlists" ? "active" : ""}
           >
             Playlists
           </button>
         </div>
+
         <UserProfile user={userInfo} />
       </div>
       <div className="main-content">
-      <div className={`tab-content ${activeTab === "tracks" ? "slide-in" : ""}`}>
-        {activeTab === "tracks" && (
-          <TrackList tracks={topTracks} onAudioPlay={handleAudioPlay} />
-        )}
+        <div
+          className={`tab-content ${activeTab === "tracks" ? "slide-in" : ""}`}
+        >
+          {activeTab === "tracks" && (
+            <TrackList tracks={topTracks} onAudioPlay={handleAudioPlay} />
+          )}
+        </div>
+        <div
+          className={`tab-content ${activeTab === "artists" ? "slide-in" : ""}`}
+        >
+          {activeTab === "artists" && <ArtistList artists={topArtists} />}
+        </div>
+        <div
+          className={`tab-content ${
+            activeTab === "playlists" ? "slide-in" : ""
+          }`}
+        >
+          {activeTab === "playlists" && <Playlist playlists={topPlaylists} />}
+        </div>
       </div>
-      <div className={`tab-content ${activeTab === "artists" ? "slide-in" : ""}`}>
-        {activeTab === "artists" && <ArtistList artists={topArtists} />}
-      </div>
-      <div className={`tab-content ${activeTab === "playlists" ? "slide-in" : ""}`}>
-        {activeTab === "playlists" && <Playlist playlists={topPlaylists} />}
-      </div>
-    </div>
     </div>
   );
 };

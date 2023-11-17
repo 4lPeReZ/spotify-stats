@@ -1,6 +1,6 @@
 // src/config/config.jsx
 
-const SPOTIFY_API_BASE_URL = 'https://api.spotify.com/v1';
+const SPOTIFY_API_BASE_URL = import.meta.env.VITE_SPOTIFY_API_BASE_URL;
 
 // Endpoints específicos para la API de Spotify
 const SPOTIFY_TOP_TRACKS_ENDPOINT = '/me/top/tracks'; // Acceso a las pistas más escuchadas por el usuario.
@@ -19,8 +19,8 @@ const SPOTIFY_CHECK_TRACK_ENDPOINT = '/me/tracks/contains'; // Verificar si una 
 
 
 // Configuración del cliente y autorización de Spotify
-const SPOTIFY_CLIENT_ID = 'd71a6b9f0ae64e69923a8b9f820518bb';
-const SPOTIFY_REDIRECT_URI = 'http://127.0.0.1:5173/callback'; // Asegúrate de que coincida con la configurada en el dashboard de Spotify
+const SPOTIFY_CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
+const SPOTIFY_REDIRECT_URI = import.meta.env.VITE_SPOTIFY_REDIRECT_URI;
 const SPOTIFY_AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize';
 const SPOTIFY_SCOPES = [
   'user-read-private', // Acceso a la información del perfil privado del usuario.
@@ -31,12 +31,6 @@ const SPOTIFY_SCOPES = [
   'playlist-read-collaborative', // Acceso a las listas de reproducción colaborativas del usuario.
   'user-read-recently-played', // Acceso al historial de reproducción reciente del usuario.
   'user-read-playback-position', // Acceso a las posiciones de reproducción dentro de las pistas escuchadas recientemente.
-  'playlist-modify-public', // Permite modificar las listas de reproducción públicas del usuario.
-  'playlist-modify-private', // Permite modificar las listas de reproducción privadas del usuario.
-  'user-follow-read', // Acceso a la lista de artistas y usuarios seguidos por el usuario.
-  'user-read-currently-playing', // Acceso a la canción que el usuario está escuchando actualmente.
-  'user-read-playback-state', // Acceso al estado actual de reproducción del usuario, como el dispositivo de reproducción.
-  'user-modify-playback-state', // Permite controlar la reproducción (play, pause, skip) en nombre del usuario.
 ];
 
 // Exportar las configuraciones combinadas

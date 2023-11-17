@@ -9,8 +9,8 @@
     height: 10%;
     width: 100%;
     display: flex;
-    justify-content: center;
-    /* Cambiado a center */
+    justify-content: space-between;
+    /* Ajustado para incluir el botón de hamburguesa */
     align-items: center;
     padding: 10px;
     z-index: 1000;
@@ -20,30 +20,34 @@
     background-color: var(--color-complementary);
 }
 
+/* Estilo para el botón de hamburguesa (oculto por defecto) */
+.hamburger-button {
+    display: none;
+    /* Oculto en pantallas grandes */
+    cursor: pointer;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: var(--color-base);
+}
+
 /* Estilo para el contenedor de las tabs */
 .tabs-container {
     display: flex;
     align-items: center;
     margin-right: 30%;
-    /* Añade un margen derecho a cada elemento excepto el último */
+    /* Resto de tus estilos... */
 }
 
 /* Estilos para los botones dentro del contenedor de las tabs */
 .tabs-container button {
     margin-right: 10px;
-    /* Espacio entre botones */
     padding: 8px 15px;
-    /* Relleno para hacer los botones más grandes y fáciles de clickear */
     background-color: var(--color-darker);
-    /* Color de fondo para los botones */
     border: 1px solid var(--color-very-dark);
-    /* Borde sutil para los botones */
     border-radius: 4px;
-    /* Bordes redondeados para los botones */
     cursor: pointer;
-    /* Cambiar el cursor al pasar el ratón sobre los botones */
     transition: background-color 0.3s;
-    /* Transición suave para el hover */
     color: var(--color-very-dark);
 }
 
@@ -51,7 +55,6 @@
 .tabs-container button:hover {
     background-color: var(--color-base);
     border: 1px solid var(--color-background);
-    /* Cambio de color al pasar el ratón */
 }
 
 /* Estilo para el botón activo (si se implementa) */
@@ -59,13 +62,11 @@
     background-color: var(--color-base);
     color: var(--color-very-dark);
     border: 1px solid var(--color-very-dark);
-    /* Color diferente para el botón activo */
 }
 
 /* Estilos adicionales para el UserProfile si es necesario */
 .main-content {
     padding-top: 80px;
-    /* Asegúrate de que este valor sea igual o mayor a la altura del header-container */
     max-width: 95%;
     margin-left: auto;
     margin-right: auto;
@@ -89,8 +90,42 @@
 
 .loading-gif-homepage {
     width: 400px;
-    /* O el tamaño que prefieras */
     height: 400px;
-    /* Otros estilos que necesites */
     border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+    .hamburger-button {
+        display: block;
+        /* Muestra el botón en dispositivos móviles */
+    }
+
+    .tabs-container {
+        display: none;
+        /* Oculta las tabs por defecto en dispositivos móviles */
+        flex-direction: row;
+        /* Cambia la dirección de la flex a horizontal */
+        position: absolute;
+        top: 70px;
+        left: 10px;
+        width: 95%;
+        background-color: var(--color-complementary);
+        justify-content: space-around;
+        /* Distribuye las tabs uniformemente */
+        padding: 10px 0;
+        /* Añade relleno para evitar que toque los bordes */
+    }
+
+    .tabs-container.show {
+        display: flex;
+        margin: 5px;
+        /* Muestra las tabs cuando se hace clic en el botón de hamburguesa */
+    }
+
+    /* Estilos para los botones dentro del contenedor de las tabs en móviles */
+    .tabs-container button {
+        flex-grow: 1;
+        /* Permite que los botones crezcan para llenar el espacio */
+        /* Ajustes adicionales para mejorar la apariencia y accesibilidad */
+    }
 }
